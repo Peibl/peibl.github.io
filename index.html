@@ -3,9 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>peibl.github.io</title>
+  <title>Manifiesto — peibl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Doto&family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #000000;
+      --border: #222222;
+      --border-visible: #333333;
+      --text-disabled: #666666;
+      --text-secondary: #999999;
+      --text-primary: #E8E8E8;
+      --text-display: #FFFFFF;
+      --accent: #D71921;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text-primary);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 64px 32px 96px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, var(--border) 0.5px, transparent 0.5px);
+      background-size: 12px 12px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 96px;
+    }
+
+    .hero {
+      margin-bottom: 64px;
+    }
+
+    .hero-title {
+      font-family: 'Doto', monospace;
+      font-size: clamp(52px, 11vw, 96px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text-display);
+      font-weight: 400;
+    }
+
+    .accent-dot {
+      color: var(--accent);
+    }
+
+    .manifesto {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .stanza p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      font-weight: 300;
+    }
+
+    .footer {
+      margin-top: 96px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-visible);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 48px 24px 80px; }
+      .meta { margin-bottom: 64px; }
+      .hero { margin-bottom: 48px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola Mundo</h1>
+  <div class="page">
+
+    <div class="meta">
+      <span>peibl.github.io</span>
+      <span>2026</span>
+    </div>
+
+    <div class="hero">
+      <h1 class="hero-title">MANIFIESTO<span class="accent-dot">.</span></h1>
+    </div>
+
+    <div class="manifesto">
+      <div class="stanza">
+        <p>No creo en verdades heredadas<br>
+        ni en reglas que nadie puede explicar.<br>
+        Si algo existe, merece ser entendido.<br>
+        Si no se puede cuestionar, no me sirve.</p>
+      </div>
+
+      <div class="stanza">
+        <p>Construyo cosas.<br>
+        Algunas son sistemas, otras ideas.<br>
+        Todas tienen una razón de ser.<br>
+        El "porque siempre fue así" no es una respuesta.</p>
+      </div>
+
+      <div class="stanza">
+        <p>Valoro el conocimiento que baja a tierra<br>
+        y la técnica que no pierde humanidad.<br>
+        Aprender no es acumular:<br>
+        es ganar criterio.</p>
+      </div>
+
+      <div class="stanza">
+        <p>No busco destacar.<br>
+        Busco ser auténtico.<br>
+        No necesito parecerme a nadie<br>
+        ni convencer a todos.</p>
+      </div>
+
+      <div class="stanza">
+        <p>Respeto la libertad ajena<br>
+        mientras no invada la mía.<br>
+        Vivir y dejar vivir<br>
+        no es un slogan: es una regla.</p>
+      </div>
+
+      <div class="stanza">
+        <p>Me tomo en serio lo importante<br>
+        y me permito jugar con el resto.<br>
+        La curiosidad, el humor<br>
+        y el disfrute también son parte del camino.</p>
+      </div>
+
+      <div class="stanza">
+        <p>No idolatro herramientas, procesos ni dogmas.<br>
+        Los uso, los pruebo, los rompo si hace falta.<br>
+        Todo puede mejorar.<br>
+        Todo puede replantearse.</p>
+      </div>
+
+      <div class="stanza">
+        <p>No persigo certezas absolutas.<br>
+        Persigo buenas preguntas.<br>
+        Apunto alto, pero con los pies en la tierra.</p>
+      </div>
+
+      <div class="stanza">
+        <p>Este soy yo.<br>
+        Sin épica falsa.<br>
+        Sin máscaras.<br>
+        Con criterio propio.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="footer-label">Pablo Tapia</span>
+      <span class="footer-label">Criterio propio</span>
+    </div>
+
+  </div>
 </body>
 </html>
