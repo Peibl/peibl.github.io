@@ -111,6 +111,64 @@
       text-transform: uppercase;
     }
 
+    .links {
+      margin-top: 96px;
+    }
+
+    .links-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .link-item:last-child {
+      border-bottom: none;
+    }
+
+    .link-item:hover {
+      border-color: var(--border-visible);
+    }
+
+    .link-item:hover .link-handle {
+      color: var(--text-display);
+    }
+
+    .link-platform {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .link-handle {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--text-primary);
+      transition: color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
     @media (max-width: 480px) {
       body { padding: 48px 24px 80px; }
       .meta { margin-bottom: 64px; }
@@ -191,6 +249,24 @@
         Sin épica falsa.<br>
         Sin máscaras.<br>
         Con criterio propio.</p>
+      </div>
+    </div>
+
+    <div class="links">
+      <div class="links-label">Encontrarme</div>
+      <div class="link-list">
+        <a class="link-item" href="https://www.linkedin.com/in/tapia-pablo/" target="_blank" rel="noopener">
+          <span class="link-platform">LinkedIn</span>
+          <span class="link-handle">/in/tapia-pablo</span>
+        </a>
+        <a class="link-item" href="https://github.com/Peibl" target="_blank" rel="noopener">
+          <span class="link-platform">GitHub</span>
+          <span class="link-handle">/Peibl</span>
+        </a>
+        <a class="link-item" href="https://x.com/PeiblTapia" target="_blank" rel="noopener">
+          <span class="link-platform">X</span>
+          <span class="link-handle">@PeiblTapia</span>
+        </a>
       </div>
     </div>
 
