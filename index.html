@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manifiesto — peibl</title>
+  <title>Pablo Tapia</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Doto&family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --black: #000000;
+      --surface: #111111;
       --border: #222222;
       --border-visible: #333333;
       --text-disabled: #666666;
@@ -25,14 +23,13 @@
       --accent: #D71921;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       background: var(--black);
       color: var(--text-primary);
       font-family: 'Space Grotesk', system-ui, sans-serif;
       font-weight: 300;
-      min-height: 100vh;
-      padding: 64px 32px 96px;
-      position: relative;
       overflow-x: hidden;
     }
 
@@ -46,46 +43,140 @@
       z-index: 0;
     }
 
-    .page {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      margin: 0 auto;
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 32px;
     }
 
-    .meta {
+    nav a {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.08em;
       color: var(--text-disabled);
       text-transform: uppercase;
+      text-decoration: none;
+      transition: color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    nav a:hover { color: var(--text-primary); }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 32px;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 96px;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 96px;
     }
 
-    .hero {
-      margin-bottom: 64px;
-    }
-
-    .hero-title {
+    .hero-name {
       font-family: 'Doto', monospace;
       font-size: clamp(52px, 11vw, 96px);
       line-height: 1.0;
       letter-spacing: -0.02em;
       color: var(--text-display);
       font-weight: 400;
+      margin-bottom: 24px;
     }
 
-    .accent-dot {
-      color: var(--accent);
+    .accent-dot { color: var(--accent); }
+
+    .hero-tagline {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      font-weight: 300;
     }
 
-    .manifesto {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
+    /* CONSTRUÍ */
+    .project-list { display: flex; flex-direction: column; }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 16px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
+
+    .project-item:first-child { border-top: 1px solid var(--border); }
+
+    .project-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      margin-bottom: 8px;
+      grid-column: 1 / -1;
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-display);
+      margin-bottom: 8px;
+    }
+
+    .project-impact {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .project-tags {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+    }
+
+    .project-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+      text-align: right;
+      padding-top: 28px;
+    }
+
+    /* PIENSO */
+    .manifesto-title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 400;
+      color: var(--text-display);
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+    }
+
+    .manifesto { display: flex; flex-direction: column; gap: 48px; }
 
     .stanza p {
       font-size: 17px;
@@ -94,63 +185,31 @@
       font-weight: 300;
     }
 
-    .footer {
-      margin-top: 96px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-visible);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* SOY */
+    .about-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      font-weight: 300;
+      max-width: 600px;
     }
 
-    .footer-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: var(--text-disabled);
-      text-transform: uppercase;
-    }
-
-    .links {
-      margin-top: 96px;
-    }
-
-    .links-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: var(--text-disabled);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .link-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+    /* LINKS */
+    .link-list { display: flex; flex-direction: column; }
 
     .link-item {
       display: flex;
       align-items: baseline;
       gap: 16px;
       text-decoration: none;
-      padding: 8px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
       transition: border-color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
-    .link-item:last-child {
-      border-bottom: none;
-    }
-
-    .link-item:hover {
-      border-color: var(--border-visible);
-    }
-
-    .link-item:hover .link-handle {
-      color: var(--text-display);
-    }
+    .link-item:first-child { border-top: 1px solid var(--border); }
+    .link-item:hover { border-color: var(--border-visible); }
+    .link-item:hover .link-handle { color: var(--text-display); }
 
     .link-platform {
       font-family: 'Space Mono', monospace;
@@ -169,26 +228,98 @@
       transition: color 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
+    /* PLACEHOLDER */
+    .ph {
+      color: var(--text-disabled);
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 32px 64px;
+      border-top: 1px solid var(--border-visible);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-disabled);
+      text-transform: uppercase;
+    }
+
     @media (max-width: 480px) {
-      body { padding: 48px 24px 80px; }
-      .meta { margin-bottom: 64px; }
-      .hero { margin-bottom: 48px; }
+      nav { padding: 16px 24px; gap: 20px; }
+      section { padding: 96px 24px; }
+      #hero { padding-top: 80px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
 
-    <div class="meta">
-      <span>peibl.github.io</span>
-      <span>2026</span>
+  <nav>
+    <a href="#construi">Construí</a>
+    <a href="#pienso">Pienso</a>
+    <a href="#soy">Soy</a>
+    <a href="#contacto">Links</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1 class="hero-name">PABLO TAPIA<span class="accent-dot">.</span></h1>
+    <p class="hero-tagline">Construyo sistemas. Cuestiono el resto.</p>
+  </section>
+
+  <!-- CONSTRUÍ -->
+  <section id="construi">
+    <div class="section-label">Construí</div>
+    <div class="project-list">
+
+      <div class="project-item">
+        <div>
+          <div class="project-number">01</div>
+          <div class="project-name ph">[Nombre del proyecto]</div>
+          <div class="project-impact ph">[Qué cambió, para quién, en qué escala.]</div>
+          <div class="project-tags ph">[TECNOLOGÍA · CONTEXTO]</div>
+        </div>
+        <div class="project-year ph">[AÑO]</div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-number">02</div>
+          <div class="project-name ph">[Nombre del proyecto]</div>
+          <div class="project-impact ph">[Qué cambió, para quién, en qué escala.]</div>
+          <div class="project-tags ph">[TECNOLOGÍA · CONTEXTO]</div>
+        </div>
+        <div class="project-year ph">[AÑO]</div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-number">03</div>
+          <div class="project-name ph">[Nombre del proyecto]</div>
+          <div class="project-impact ph">[Qué cambió, para quién, en qué escala.]</div>
+          <div class="project-tags ph">[TECNOLOGÍA · CONTEXTO]</div>
+        </div>
+        <div class="project-year ph">[AÑO]</div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="hero">
-      <h1 class="hero-title">MANIFIESTO<span class="accent-dot">.</span></h1>
-    </div>
-
+  <!-- PIENSO -->
+  <section id="pienso">
+    <div class="section-label">Pienso</div>
+    <h2 class="manifesto-title">Manifiesto</h2>
     <div class="manifesto">
+
       <div class="stanza">
         <p>No creo en verdades heredadas<br>
         ni en reglas que nadie puede explicar.<br>
@@ -250,31 +381,39 @@
         Sin máscaras.<br>
         Con criterio propio.</p>
       </div>
-    </div>
 
-    <div class="links">
-      <div class="links-label">Encontrarme</div>
-      <div class="link-list">
-        <a class="link-item" href="https://www.linkedin.com/in/tapia-pablo/" target="_blank" rel="noopener">
-          <span class="link-platform">LinkedIn</span>
-          <span class="link-handle">/in/tapia-pablo</span>
-        </a>
-        <a class="link-item" href="https://github.com/Peibl" target="_blank" rel="noopener">
-          <span class="link-platform">GitHub</span>
-          <span class="link-handle">/Peibl</span>
-        </a>
-        <a class="link-item" href="https://x.com/PeiblTapia" target="_blank" rel="noopener">
-          <span class="link-platform">X</span>
-          <span class="link-handle">@PeiblTapia</span>
-        </a>
-      </div>
     </div>
+  </section>
 
-    <div class="footer">
-      <span class="footer-label">Pablo Tapia</span>
-      <span class="footer-label">Criterio propio</span>
+  <!-- SOY -->
+  <section id="soy">
+    <div class="section-label">Soy</div>
+    <p class="about-text ph">[Dos o tres líneas sobre quién sos, sin cargos ni empresas. Lo que te mueve, cómo pensás, qué valorás en el trabajo y en la vida.]</p>
+  </section>
+
+  <!-- LINKS -->
+  <section id="contacto">
+    <div class="section-label">Encontrarme</div>
+    <div class="link-list">
+      <a class="link-item" href="https://www.linkedin.com/in/tapia-pablo/" target="_blank" rel="noopener">
+        <span class="link-platform">LinkedIn</span>
+        <span class="link-handle">/in/tapia-pablo</span>
+      </a>
+      <a class="link-item" href="https://github.com/Peibl" target="_blank" rel="noopener">
+        <span class="link-platform">GitHub</span>
+        <span class="link-handle">/Peibl</span>
+      </a>
+      <a class="link-item" href="https://x.com/PeiblTapia" target="_blank" rel="noopener">
+        <span class="link-platform">X</span>
+        <span class="link-handle">@PeiblTapia</span>
+      </a>
     </div>
+  </section>
 
-  </div>
+  <footer>
+    <span class="footer-label">Pablo Tapia</span>
+    <span class="footer-label">2026</span>
+  </footer>
+
 </body>
 </html>
